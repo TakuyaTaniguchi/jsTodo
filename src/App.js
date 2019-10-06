@@ -1,4 +1,11 @@
 import { element } from "./view/html-util.js";
+import { EventEmitter } from "./EventEmitter.js";
+const event = new EventEmitter();
+event.addEventListener("test-event", () => console.log("One!"));
+event.addEventListener("test-event", () => console.log("Two!"));
+// イベントをディスパッチする
+event.emit("test-event");
+
 export class App{
     mount() {
         const formElement = document.querySelector("#js-form");
