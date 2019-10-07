@@ -1,12 +1,10 @@
-
 import { render } from "./view/html-util.js";
-import { TodoListModel } from "./model/TodoListModel.js";
-import { TodoItemModel } from "./model/TodoItemModel.js";
 import { TodoListView } from "./view/TodoListView.js";
+import { TodoItemModel } from "./model/TodoItemModel.js";
+import { TodoListModel } from "./model/TodoListModel.js";
 
-export class App{
-    constructor(){
-        // 1. TodoListの初期化
+export class App {
+    constructor() {
         this.todoListView = new TodoListView();
         this.todoListModel = new TodoListModel([]);
     }
@@ -27,7 +25,6 @@ export class App{
         this.todoListModel.updateTodo({ id, completed });
     }
 
-
     /**
      * Todoを削除時に呼ばれるリスナー関数
      * @param {{ id: number }}
@@ -35,7 +32,6 @@ export class App{
     handleDelete({ id }) {
         this.todoListModel.deleteTodo({ id });
     }
-
 
     mount() {
         const formElement = document.querySelector("#js-form");
